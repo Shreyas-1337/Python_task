@@ -1,0 +1,27 @@
+Private Function solution(N As Long) As Long
+
+    Dim bs As String
+    Dim acc As Integer
+    bs = " "
+    If N > 0 Then
+        While N > 0
+            bs = N Mod 2 & bs
+            N = N \ 2
+        Wend
+           
+        For i = 1 To Len(bs)
+            If Mid(bs, i, 1) = 0 Then
+                acc = acc + 1
+                ElseIf Mid(bs, i, 1) = 1 Then
+                    If acc > solution Then
+                        solution = acc
+                    End If
+                    acc = 0
+                End If
+        Next i
+        
+    Else
+        MsgBox "Please Enter a Positive Number", , "ERROR!!!"
+    End If
+
+End Function
